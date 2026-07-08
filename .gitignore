@@ -1,0 +1,20 @@
+# Dependencies / generated
+node_modules/
+build/
+.moonwave/
+
+# Roblox tooling
+Packages/
+DevPackages/
+sourcemap.json
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+
+# OS / editor
+.DS_Store
+*.tmp
+*.log
+.vscode/
+.idea/

@@ -1,0 +1,22 @@
+title = "Voz Hispana Docs"
+gitRepoUrl = "https://github.com/Arclyne/voz-hispana-docs"
+changelog = false
+
+[docusaurus]
+tagline = "Guía técnica para desarrolladores de Voz Hispana"
+
+[home]
+enabled = true
+includeReadme = false
+
+[[home.features]]
+title = "Onboarding rápido"
+description = "Reglas claras para que un desarrollador nuevo pueda entrar al proyecto sin romper el flujo de templates, scripts o carga inicial."
+
+[[home.features]]
+title = "Templates y arquitectura"
+description = "Cómo se organizan Core, las templates por sistema y el arranque entre servidor y cliente."
+
+[[home.features]]
+title = "Sistemas como fachada"
+description = "Cada sistema se documenta desde el punto de vista de uso: qué hace, dónde está y cómo llamarlo."
