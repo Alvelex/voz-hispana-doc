@@ -6,7 +6,7 @@ sidebar_position: 99
 
 ## Documentación interna
 
-- World System: https://arclyne.github.io/world-system/docs/intro/
+- Data Kit: https://arclyne.github.io/data-kit/docs/intro
 
 ## Pendiente
 

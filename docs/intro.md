@@ -13,9 +13,8 @@ La regla general es simple: esta guía explica **cómo usar** cada sistema, no c
 Empieza por:
 
 1. [Onboarding](./onboarding.md)
-2. [Reglas del proyecto](./project-rules.md)
-3. [Templates](./templates.md)
-4. [Scripts](./scripts.md)
-5. [Flujo de arranque](./startup-flow.md)
+2. [Templates](./templates.md)
+3. [Scripts](./scripts.md)
+4. [Flujo de arranque](./startup-flow.md)
 
 Después consulta los módulos o sistemas concretos según lo que estés tocando.

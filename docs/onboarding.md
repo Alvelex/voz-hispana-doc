@@ -2,65 +2,50 @@
 sidebar_position: 2
 ---
 
-# Onboarding
+# Guía inicial para desarrolladores
 
-Esta página contiene las reglas mínimas para empezar a trabajar en el proyecto.
+Esta guía resume las normas básicas que debe conocer cualquier persona que entre al proyecto para poder trabajar sin romper el sistema de templates, scripts o carga inicial.
 
-## Reglas obligatorias
+## Reglas rápidas
 
-### 1. Usa `PlayerInit`, no `Players.PlayerAdded`, en templates
+- En templates, usar `PlayerInit` en vez de `Players.PlayerAdded` directamente.
+- No crear scripts nuevos en `StarterPlayerScripts`.
+- Los scripts cliente van en `ReplicatedStorage > Client`.
+- Los scripts cliente deben tener `RunContext = Client` y `Enabled = false`.
+- Los scripts de templates deben publicarse con `Enabled = false`.
+- Usar el tag `IgnoreAutoEnable` en scripts que no deben activarse automáticamente.
+- `Core` siempre debe ir primero en `ImportTemplates`.
+- No trabajar directamente en templates copiadas dentro de `TemplatesTesting` de places secundarias.
+- Para animaciones comunes de botones de UI, usar `ReplicatedStorage.Shared.AnimationButtons`.
 
-Los scripts de templates pueden cargarse cuando ya hay jugadores dentro del servidor. Por eso, en templates no usamos directamente `Players.PlayerAdded`.
+## PlayerInit
 
-Usa siempre:
+Los scripts de templates pueden cargarse cuando ya hay jugadores dentro del servidor. Por eso, `Players.PlayerAdded` puede no dispararse para jugadores que ya estaban conectados.
+
+Usa siempre `PlayerInit` dentro de templates:
 
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local PlayerInit = require(ReplicatedStorage:WaitForChild("PlayerInit"))
 
 PlayerInit.Connect(function(player)
-	-- Código para jugadores actuales y futuros
+	-- Código seguro para jugadores actuales y futuros
 end)
 ```
 
-### 2. No crees scripts nuevos en `StarterPlayerScripts`
+## Scripts cliente
 
-Los scripts cliente nuevos deben ir en:
+- No usar `StarterPlayerScripts` para nuevos sistemas.
+- Los scripts cliente van en `ReplicatedStorage > Client`.
+- Deben tener `RunContext = Client` y `Enabled = false`.
+- `GameLoader` los activa al final de la carga inicial del cliente.
 
-```text
-ReplicatedStorage
-└── Client
-```
+## Auto-enable
 
-Con estas propiedades:
+- `InitScripts` activa scripts de servidor después de importar templates.
+- `GameLoader` activa scripts cliente dentro de `ReplicatedStorage.Client`.
+- Scripts con el tag `IgnoreAutoEnable` no se activan automáticamente. Útil para scripts internos de modelos, tools, efectos o componentes clonables.
 
-```text
-RunContext = Client
-Enabled = false
-```
+## Templates
 
-`GameLoader` los activa cuando termina la carga inicial del cliente.
-
-### 3. Publica los scripts de templates desactivados
-
-Los scripts que vienen de templates deben publicarse con:
-
-```text
-Enabled = false
-```
-
-Después el sistema los activa automáticamente cuando corresponde.
-
-### 4. Usa `IgnoreAutoEnable` cuando un script no debe arrancar solo
-
-Añade el tag:
-
-```text
-IgnoreAutoEnable
-```
-
-a scripts internos de modelos, tools, efectos, componentes clonables o cualquier script que deba activarse manualmente.
-
-### 5. `Core` siempre va primero
-
-La template `Core` debe importarse antes que el resto. Las demás templates pueden extender estructuras ya creadas por `Core`.
+Para entender cómo funcionan las templates, el orden de importación y el merge, consulta [Templates](./templates.md).

@@ -9,8 +9,8 @@ sidebar_position: 5
 Los scripts cliente nuevos deben ir en:
 
 ```text
-ReplicatedStorage
-└── Client
+ReplicatedStorage/
+  Client/
 ```
 
 Propiedades:
@@ -37,8 +37,8 @@ Motivo: `StarterPlayerScripts` se copia al jugador cuando entra. Como nuestro pr
 Los módulos compartidos van normalmente en:
 
 ```text
-ReplicatedStorage
-└── Shared
+ReplicatedStorage/
+  Shared/
 ```
 
 Ejemplos:

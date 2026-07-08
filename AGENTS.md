@@ -14,7 +14,6 @@ Este repositorio contiene la documentación técnica de Voz Hispana para desarro
 
 - `docs/intro.md`: entrada principal.
 - `docs/onboarding.md`: guía inicial para nuevos devs.
-- `docs/project-rules.md`: reglas obligatorias del proyecto.
 - `docs/templates.md`: sistema de templates.
 - `docs/scripts.md`: reglas sobre scripts cliente/servidor.
 - `docs/startup-flow.md`: flujo ImportTemplates, InitScripts y GameLoader.
